@@ -6,18 +6,18 @@ namespace Tutorial4.Models;
 public class Visit
 {
     
-    public int Id { get; set; }
+    public int Id { get;}
     [Required]
     public int AnimalClientId { get; set; }
     
     [MaxLength(200)]
     public string ShortDescription { get; set; }
    
-    public DateOnly Date { get; set; }
+    public DateTime Date { get; set; }
     public double Cost { get; set; }
     private static int countvisits=0;
 
-    public Visit(int animalClientId, string shortDescription,DateOnly date,double cost)
+    public Visit(int animalClientId, string shortDescription,DateTime date,double cost)
     {
         countvisits += 1;
         this.Id = countvisits;

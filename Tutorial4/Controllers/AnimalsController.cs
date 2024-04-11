@@ -38,7 +38,7 @@ public class AnimalsController : ControllerBase
     }
 
     [HttpPut("{id:int}")]
-    public IActionResult EditAnimal(int id,Animal animal)
+    public IActionResult EditAnimal(int id,[FromBody]Animal animal)
     {
         var animals=MockDb.getInstance().Animals;
         var animalToEdit = animals.FirstOrDefault(a => a.Id == id);
@@ -46,9 +46,12 @@ public class AnimalsController : ControllerBase
         {
             return NotFound($"No Animal under this Id {id}");
         }
-        animals.Remove(animalToEdit);
-        animals.Add(animal);
-        return NoContent();
+
+        animalToEdit.FirstName = animal.FirstName;
+        animalToEdit.Weight = animal.Weight;
+        animalToEdit.FurColour = animal.FurColour;
+        animalToEdit.Category = animal.Category;
+        return Ok(animalToEdit);
     }
 
     [HttpDelete("{id:int}")]
@@ -58,7 +61,7 @@ public class AnimalsController : ControllerBase
         var animalToDelete = animals.FirstOrDefault(a => a.Id == id);
         if (animalToDelete == null)
         {
-            return NoContent();
+            return NotFound();
         }
         animals.Remove(animalToDelete);
         return NoContent();

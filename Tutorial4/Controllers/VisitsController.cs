@@ -9,7 +9,7 @@ namespace Tutorial4.Controllers;
 [Route("aniapi/visits")]
 public class VisitsController : ControllerBase
 {
-    [HttpGet]
+    [HttpGet("{animalId:int}")]
     public IActionResult GetVisitsFor(int animalId)
     {
         var visits =MockDb.getInstance().Visits;

@@ -17,11 +17,10 @@ public class MockDb
         Animals.Add(new Animal("Eden","Dog",24.5,"black&brown"));
         Animals.Add(new Animal("Kreska","Dog",22.0,"beige"));
         
-        Visits.Add(new Visit(1,"Casual Check", new DateOnly(2022,03,04),120.0));
-        Visits.Add(new Visit(2,"Injection",new DateOnly(2013, 12, 23),100.0));
-        Visits.Add(new Visit(2,"Injection2",new DateOnly(2013, 12, 24),100.0));
-        Visits.Add(new Visit(3,"Tumor removal",new DateOnly(2023, 06, 11),330.0));
-       
+        Visits.Add(new Visit(1, "Casual Check", new DateTime(2022, 03, 04), 120.0));
+        Visits.Add(new Visit(2, "Injection", new DateTime(2013, 12, 23), 100.0));
+        Visits.Add(new Visit(2, "Injection2", new DateTime(2013, 12, 24), 100.0));
+        Visits.Add(new Visit(3, "Tumor removal", new DateTime(2023, 06, 11), 330.0));
     }
 
     public static MockDb getInstance()
