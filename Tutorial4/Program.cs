@@ -22,7 +22,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 // Minimal API
-app.MapAnimalEndpoints();
+//app.MapAnimalEndpoints();
 
 // 200 - Ok
 // 201 - Created
